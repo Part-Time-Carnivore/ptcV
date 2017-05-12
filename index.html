@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/color.css">
+</head>
+
+<body>
+<main>
+
+<header>
+    <nav>
+        <template v-if="permission === 0">
+            <a href="#join" id="join">Sign up</a>
+            <a href="#login" id="login">Login</a>
+        </template>
+        <a v-else href="#profile" id="profile">Logout</a>
+    </nav>
+    <img alt="logo">
+    <call-to-action v-if="permission === 0"></call-to-action>
+</header>
+
+<my-profile></my-profile>
+
+<teams-list v-if="teams.length" :permission="permission"></teams-list>
+
+<members-list v-if="members.length"></members-list>
+
+<footer>
+    <join-form v-if="permission === 0"></join-form>
+    <contribute-form v-else-if="permission === 1"></contribute-form>
+    <team-form v-else-if="permission === 2"></team-form>
+    <about-info></about-info>
+    <social-links></social-links>
+</footer>
+
+</main>
+<!-- JS -->
+<script src="https://unpkg.com/vue"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

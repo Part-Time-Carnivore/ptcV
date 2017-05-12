@@ -1,0 +1,10 @@
+main {
+    background-color: black;
+    color: white;
+}
+
+header,
+footer {
+    background-color: white;
+    color: black;
+}
